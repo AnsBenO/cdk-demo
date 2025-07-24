@@ -2,6 +2,14 @@
   display: block;
   height: 100%;
   padding: 1.5em;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  gap: 1.5em;
 }
 
 p {

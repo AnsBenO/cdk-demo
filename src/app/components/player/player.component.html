@@ -1,4 +1,5 @@
-<img [src]="'/assets/' + player.imageName + '.avif'" width="1040" height="760" [alt]="player.name" />
+<img (click)="viewPhoto()" [src]="'/assets/' + player.imageName + '.avif'" width="1040" height="760"
+      [alt]="player.name" />
 <h2>{{ player.name }}</h2>
 <dl>
       <div>
@@ -35,29 +36,30 @@
       </div>
 </dl>
 
-<!-- 1. Simple Globally Positioned Overlay -->
-<!-- <button
-  (click)="openModal()"
-  title="Player Details">
-  &#8942;
-  <span class="cdk-visually-hidden">
-    Player Details
-  </span>
-</button>
-<ng-template cdkPortal>
-  <app-player-details [player]="player"></app-player-details>
-</ng-template> -->
 
-<!-- 3. Simple Conected Position Overlay -->
-<!-- <button 
-cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="detailsOpen = !detailsOpen" [class.open]="detailsOpen"
+
+
+<!-- 1. Simple Globally Positioned Overlay -->
+<!-- View Photo Modal -->
+<ng-template #photoPortal>
+      <app-view-photo [photoUrl]="'/assets/' + player.imageName + '.avif'"></app-view-photo>
+</ng-template>
+
+
+<!-- 3. Simple Connected Position Overlay -->
+<button cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="detailsOpen = !detailsOpen" [class.open]="detailsOpen"
       title="Player Details">
       &#8942;
       <span class="cdk-visually-hidden">
             Player Details
       </span>
 </button>
+@if (detailsOpen) {
 <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="detailsOpen"
-      cdkConnectedOverlayWidth="60%" (overlayOutsideClick)="detailsOpen = false; $event.stopPropagation()">
-      <app-player-details [player]="player"></app-player-details>
-</ng-template> -->
+      cdkConnectedOverlayWidth="60%" cdkConnectedOverlayWidth="500px"
+      (overlayOutsideClick)="detailsOpen = false; $event.stopPropagation()">
+      <app-player-details [close]="detailsOpen" [playerDetails]="player">
+      </app-player-details>
+</ng-template>
+
+}

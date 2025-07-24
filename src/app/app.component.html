@@ -2,10 +2,12 @@
   <label for="search">Search Players</label>
   <input type="search" id="search" autocomplete="off" [(ngModel)]="searchText"
     placeholder="Search by entering a player name" />
+  <div class="container">
+    @for (player of players() | filter: searchText(); track player.name) {
+    <app-player [player]="player" />
+    } @empty {
+    <p>Sorry, we couldn't find any players with the name you entered</p>
+    }
 
-  @for (player of players() | filter: searchText(); track player.name) {
-  <app-player [player]="player"></app-player>
-  } @empty {
-  <p>Sorry, we couldn't find any players with the name you entered</p>
-  }
+  </div>
 </search>

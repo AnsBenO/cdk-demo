@@ -1,11 +1,8 @@
 :host {
-  display: block;
-}
-:host {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 0.25em;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.75em;
   padding: 1em;
   display: grid;
   grid-template-columns: 7em repeat(4, 1fr);
