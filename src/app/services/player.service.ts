@@ -3,9 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Player } from '../types/player.type';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class PlayerService {
   api = 'http://localhost:3000';
 
