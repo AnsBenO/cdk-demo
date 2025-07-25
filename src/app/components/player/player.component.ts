@@ -4,9 +4,11 @@ import {
   HostBinding,
   inject,
   Input,
+  signal,
   TemplateRef,
   ViewChild,
   ViewContainerRef,
+  WritableSignal,
 } from '@angular/core';
 import { Player } from '../../types/player.type';
 import { DecimalPipe, PercentPipe } from '@angular/common';
@@ -15,6 +17,8 @@ import { PortalModule, TemplatePortal } from '@angular/cdk/portal';
 import { PlayerDetailsComponent } from '../player-details/player-details.component';
 import { enterLeaveAnimation } from '../enterLeaveAnimation';
 import { ViewPhotoComponent } from '../view-photo/view-photo.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-player',
@@ -25,6 +29,7 @@ import { ViewPhotoComponent } from '../view-photo/view-photo.component';
     PlayerDetailsComponent,
     ViewPhotoComponent,
     OverlayModule,
+    FontAwesomeModule,
   ],
   templateUrl: './player.component.html',
   styleUrl: './player.component.scss',
@@ -39,7 +44,14 @@ export class PlayerComponent {
   photoPortalTemplate!: TemplateRef<unknown>;
 
   overlay = inject(Overlay);
-  detailsOpen: boolean = false;
+  detailsOpen: WritableSignal<boolean> = signal(false);
+
+  infoIcon = faInfo;
+
+  handleDetailsOpen() {
+    this.detailsOpen.set(!this.detailsOpen());
+    //
+  }
 
   viewPhoto() {
     const overlayRef = this.overlay.create({

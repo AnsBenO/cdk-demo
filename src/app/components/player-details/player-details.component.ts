@@ -12,12 +12,11 @@ import { enterLeaveAnimation } from '../enterLeaveAnimation';
   selector: 'app-player-details',
   imports: [DecimalPipe, PercentPipe],
   templateUrl: './player-details.component.html',
-  styleUrl: './player-details.component.css',
+  styleUrl: './player-details.component.scss',
   animations: [enterLeaveAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlayerDetailsComponent {
   @Input({ required: true }) playerDetails!: Player;
-  @Input() close!: boolean;
   @HostBinding('@enterLeaveAnimation') animated = close;
 }
