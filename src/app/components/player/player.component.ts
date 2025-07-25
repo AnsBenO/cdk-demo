@@ -8,7 +8,7 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { Player } from '../../players';
+import { Player } from '../../types/player.type';
 import { DecimalPipe, PercentPipe } from '@angular/common';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule, TemplatePortal } from '@angular/cdk/portal';

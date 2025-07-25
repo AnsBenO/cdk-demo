@@ -4,7 +4,7 @@ import {
   HostBinding,
   Input,
 } from '@angular/core';
-import { Player } from '../../players';
+import { Player } from '../../types/player.type';
 import { DecimalPipe, PercentPipe } from '@angular/common';
 import { enterLeaveAnimation } from '../enterLeaveAnimation';
 
