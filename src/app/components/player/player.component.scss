@@ -1,16 +1,16 @@
 :host {
   display: flex;
   flex-direction: column;
-  border-radius: 1em;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   position: relative;
   max-width: 320px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-md);
   }
 }
 
@@ -37,7 +37,11 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      var(--surface)
+    );
     z-index: 2;
   }
 
@@ -52,7 +56,7 @@
 
   &:hover {
     &::before {
-      background-color: rgba(0, 0, 0, 0.25);
+      background-color: var(--overlay);
     }
 
     img {
@@ -70,7 +74,7 @@
   h2 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--heading);
     margin: 0;
   }
 
@@ -88,13 +92,13 @@
     dt {
       font-size: 0.75rem;
       font-weight: 600;
-      color: #6b7280;
+      color: var(--muted-text);
     }
 
     dd {
       font-size: 1rem;
       margin: 0;
-      color: #1f2937;
+      color: var(--text);
     }
   }
 }
@@ -103,26 +107,27 @@ button {
   position: absolute;
   top: 0.75em;
   right: 0.75em;
-  background: rgba(255, 255, 255, 0.315);
-  border: 1px solid #d1d5db;
-  border-radius: 0.5em;
+  background: var(--button-bg);
+  border: 1px solid var(--outline);
+  border-radius: var(--radius-sm);
   font-size: 1rem;
   padding: 0.3em 0.6em;
-  color: #374151;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  color: var(--light-gray);
+  box-shadow: var(--button-shadow);
   transition: all 0.2s ease;
   z-index: 10;
 
   &:hover,
   &:focus-visible {
-    border-color: #2563eb;
-    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.2);
-    color: #1d4ed8;
+    border-color: var(--primary-blue);
+    box-shadow: var(--button-hover-shadow);
+    color: var(--primary-hover);
     cursor: pointer;
   }
+
   &.open {
-    border-color: #2563eb;
-    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.2);
-    color: #1d4ed8;
+    border-color: var(--primary-blue);
+    box-shadow: var(--button-hover-shadow);
+    color: var(--primary-hover);
   }
 }
