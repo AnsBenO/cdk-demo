@@ -13,7 +13,6 @@ import { PlayerService } from './services/player.service';
 import { AsyncPipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { environment } from './environments/environment.development';
 
 type Theme = 'dark' | 'light' | null;
 
@@ -47,7 +46,6 @@ export class AppComponent {
     const appliedTheme = defaultTheme || 'light';
     this.theme.set(appliedTheme);
     document.body.setAttribute('data-theme', appliedTheme);
-    console.log('Environment API URL:', environment);
   }
 
   applyTheme(t: Theme) {
