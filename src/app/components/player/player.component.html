@@ -1,7 +1,7 @@
 <div class="player-card">
-
+      @let photoUrl = 'assets/' + player.imageName + '.avif';
       <div class="image-container" (click)="viewPhoto()">
-            <img [src]="'/assets/' + player.imageName + '.avif'" [alt]="player.name" width="1040" height="760" />
+            <img [src]="photoUrl" [alt]="player.name" width="1040" height="760" />
       </div>
 
       <div class="player-info">
@@ -43,6 +43,6 @@
 
       <!-- Photo Modal -->
       <ng-template #photoPortal>
-            <app-view-photo [photoUrl]="'/assets/' + player.imageName + '.avif'" />
+            <app-view-photo [photoUrl]="photoUrl" />
       </ng-template>
 </div>
