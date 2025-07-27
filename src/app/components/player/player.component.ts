@@ -42,7 +42,6 @@ export class PlayerComponent {
   viewContainerRef: ViewContainerRef = inject(ViewContainerRef);
   @ViewChild('photoPortal', { static: false })
   photoPortalTemplate!: TemplateRef<unknown>;
-
   overlay = inject(Overlay);
   detailsOpen: WritableSignal<boolean> = signal(false);
 
