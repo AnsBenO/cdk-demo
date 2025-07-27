@@ -2,10 +2,11 @@ import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Player } from '../types/player.type';
+import { environment } from '../environments/environment.development';
 
 @Injectable()
 export class PlayerService {
-  api = 'http://localhost:3000';
+  api = environment.API_URL;
 
   http = inject(HttpClient);
 

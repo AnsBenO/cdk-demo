@@ -37,12 +37,12 @@
       @if (detailsOpen()) {
       <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="detailsOpen()"
             cdkConnectedOverlayWidth="500px" (overlayOutsideClick)="detailsOpen.set(false)">
-            <app-player-details [playerDetails]="player"></app-player-details>
+            <app-player-details [playerDetails]="player" />
       </ng-template>
       }
 
       <!-- Photo Modal -->
       <ng-template #photoPortal>
-            <app-view-photo [photoUrl]="'/assets/' + player.imageName + '.avif'"></app-view-photo>
+            <app-view-photo [photoUrl]="'/assets/' + player.imageName + '.avif'" />
       </ng-template>
 </div>
