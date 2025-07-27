@@ -16,5 +16,5 @@ export class PlayerService {
 
   players$: Observable<Player[]> = this.http
     .get<Player[]>(`${this.api}`)
-    .pipe(tap(() => console.log('Environment API URL:', environment)));
+    .pipe(tap((r) => console.log('Response:', r)));
 }
