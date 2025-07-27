@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Player } from '../types/player.type';
 import { environment } from '../environments/environment';
@@ -14,7 +14,5 @@ export class PlayerService {
 
   isLoading$ = this.loadingSubject.asObservable();
 
-  players$: Observable<Player[]> = this.http
-    .get<Player[]>(`${this.api}`)
-    .pipe(tap((r) => console.log('Response:', r)));
+  players$: Observable<Player[]> = this.http.get<Player[]>(`${this.api}`);
 }
