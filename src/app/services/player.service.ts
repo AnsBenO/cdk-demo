@@ -14,7 +14,5 @@ export class PlayerService {
 
   isLoading$ = this.loadingSubject.asObservable();
 
-  players$: Observable<Player[]> = this.http.get<Player[]>(
-    `${this.api}/players`
-  );
+  players$: Observable<Player[]> = this.http.get<Player[]>(`${this.api}`);
 }
